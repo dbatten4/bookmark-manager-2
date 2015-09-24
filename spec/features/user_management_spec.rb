@@ -1,11 +1,15 @@
+require './spec/factories/user'
+
 feature 'User sign up' do 
 
   before(:each) do
-    visit '/users/new'
-    fill_in :email, with: 'alice@example.com'
-    fill_in :password, with: '12345678'
-    fill_in :password_confirmation, with: '12345678'
-  end
+      visit '/users/new'
+      user = create :user
+      fill_in :email, with: user.email
+      fill_in :password, with: user.password
+      fill_in :password_confirmation, with: user.password_confirmation
+    end
+
 
   # def sign_up(email: 'alice@example.com',
   #             password: '12345678',
@@ -17,11 +21,11 @@ feature 'User sign up' do
   #   click_button 'Sign up'
   # end
 
-  scenario 'I can sign up as a new user' do 
+  scenario 'I can sign up as a new user' do  
     expect(page.status_code).to eq(200)
     click_button 'Sign up'
-    expect(page).to have_content('Welcome, alice@example.com')
-    expect(User.first.email).to eq('alice@example.com')
+    expect(page).to have_content('Welcome, dom@example.com')
+    expect(User.first.email).to eq('dom@example.com')
   end
 
   scenario 'requires a matching password' do 
