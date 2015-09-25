@@ -5,6 +5,7 @@ ruby '2.2.3'
 
 gem 'rails'
 gem 'rerun'
+gem 'rake'
 
 group :test do
   gem 'rspec'
@@ -17,4 +18,3 @@ group :test do
   gem 'sinatra-flash'
   gem 'factory_girl'
 end
-

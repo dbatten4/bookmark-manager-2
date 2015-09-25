@@ -208,6 +208,7 @@ DEPENDENCIES
   dm-postgres-adapter
   factory_girl
   rails
+  rake
   rerun
   rspec
   sinatra
