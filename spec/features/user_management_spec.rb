@@ -5,7 +5,7 @@ feature 'User sign up' do
   before(:each) do
     visit '/users/new'
     user = build :user
-    fill_in :email, with: user.email
+    fill_in :email,    with: user.email
     fill_in :password, with: user.password
     fill_in :password_confirmation, with: user.password_confirmation
   end
@@ -29,7 +29,7 @@ feature 'User sign up' do
   scenario 'with a password that does not match' do 
     fill_in :password_confirmation, with: 'wrong!'
     expect { click_button('Sign up') }.not_to change(User, :count)
-    expect(current_path).to eq('/users')
+    
     expect(page).to have_content 'Password does not match the confirmation'
   end
 

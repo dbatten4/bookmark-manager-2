@@ -4,6 +4,7 @@ source "https://rubygems.org"
 ruby '2.2.3'
 
 gem 'rails'
+gem 'rerun'
 
 group :test do
   gem 'rspec'
