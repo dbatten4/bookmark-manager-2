@@ -4,6 +4,7 @@ require_relative 'helpers'
 require_relative 'data_mapper_setup'
 
 class BookmarkManagerWeb < Sinatra::Base
+  use Rack::MethodOverride
 
   include Helpers
 
@@ -76,6 +77,14 @@ class BookmarkManagerWeb < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session.clear
+    redirect('/goodbye')
+  end
+
+  get ('/goodbye') do
+      erb :goodbye
+  end
   # helpers do
   #   include Helpers
   # end
