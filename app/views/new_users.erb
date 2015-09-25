@@ -2,6 +2,7 @@
 
 <form action='/users' method="post">
   Email: <input type="text" name="email" value="<%= @user.email %>">
+  Username: <input type="text" name="username" value="<%= @user.username %>">
   Password: <input type="password" name="password">
   Password Confirmation <input type="password" name="password_confirmation">
   <input type="submit" value="Sign up">

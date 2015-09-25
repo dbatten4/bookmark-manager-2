@@ -13,7 +13,7 @@ feature 'User sign in' do
     fill_in :password, with: user.password
     click_button('Sign in')
     expect(current_path).to eq('/links')
-    expect(page).to have_content("Welcome," )
+    expect(page).to have_content("Welcome, dom")
   end
 
 end
